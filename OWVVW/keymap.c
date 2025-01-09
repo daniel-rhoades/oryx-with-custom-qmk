@@ -101,7 +101,7 @@ const uint16_t PROGMEM combo5[] = { KC_T, KC_R, COMBO_END};
 const uint16_t PROGMEM combo6[] = { KC_I, LT(5,KC_E), COMBO_END};
 const uint16_t PROGMEM combo7[] = { LT(2,KC_S), KC_T, COMBO_END};
 const uint16_t PROGMEM combo8[] = { LT(3,KC_O), KC_Y, COMBO_END};
-const uint16_t PROGMEM combo9[] = { KC_Y, LT(5,KC_E), KC_LEFT_SHIFT, COMBO_END};
+const uint16_t PROGMEM combo9[] = { KC_Y, LT(5,KC_E), KC_I, COMBO_END};
 const uint16_t PROGMEM combo10[] = { LT(3,KC_O), KC_I, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo11[] = { LT(3,KC_O), KC_I, COMBO_END};
 const uint16_t PROGMEM combo12[] = { LT(3,KC_O), KC_I, LT(5,KC_E), COMBO_END};
@@ -116,6 +116,8 @@ const uint16_t PROGMEM combo20[] = { KC_T, KC_I, COMBO_END};
 const uint16_t PROGMEM combo21[] = { KC_Y, LT(1,KC_A), COMBO_END};
 const uint16_t PROGMEM combo22[] = { KC_I, KC_Y, LT(1,KC_A), COMBO_END};
 const uint16_t PROGMEM combo23[] = { LT(3,KC_O), LT(1,KC_A), COMBO_END};
+const uint16_t PROGMEM combo24[] = { LT(3,KC_O), KC_T, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo25[] = { LT(2,KC_S), KC_I, KC_R, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_SPACE),
@@ -142,6 +144,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo21, KC_DOT),
     COMBO(combo22, KC_QUOTE),
     COMBO(combo23, KC_SLASH),
+    COMBO(combo24, TO(7)),
+    COMBO(combo25, TO(6)),
 };
 
 extern rgb_config_t rgb_matrix_config;
