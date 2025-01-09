@@ -4,9 +4,9 @@
 */
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "OWVVW/Dz4ZeZ"
+#define SERIAL_NUMBER "OWVVW/rbKPV7"
 #define LAYER_STATE_16BIT
-#define COMBO_COUNT 24
+#define COMBO_COUNT 26
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
 #define RGB_MATRIX_STARTUP_SPD 60
