@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "i18n.h"
+#include "features/achordion.h"
 #define MOON_LED_LEVEL LED_LEVEL
 #define ML_SAFE_RANGE SAFE_RANGE
 
@@ -9,6 +10,9 @@ enum custom_keycodes {
   MAC_SIRI,
 };
 
+void matrix_scan_user(void) {
+  achordion_task();
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
@@ -92,84 +96,86 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_SPACE,       KC_BSPC,        KC_LEFT_GUI,                    KC_LEFT_ALT,    KC_TAB,         KC_ENTER
   ),
 };
-const uint16_t PROGMEM combo0[] = { KC_O, KC_I, KC_Y, KC_E, COMBO_END};
-const uint16_t PROGMEM combo1[] = { KC_A, KC_E, COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_A, KC_R, KC_T, KC_O, COMBO_END};
-const uint16_t PROGMEM combo3[] = { KC_R, KC_E, COMBO_END};
-const uint16_t PROGMEM combo4[] = { KC_S, KC_T, KC_R, KC_E, COMBO_END};
-const uint16_t PROGMEM combo5[] = { KC_R, KC_Y, COMBO_END};
-const uint16_t PROGMEM combo6[] = { KC_S, KC_E, COMBO_END};
-const uint16_t PROGMEM combo7[] = { KC_S, KC_I, COMBO_END};
-const uint16_t PROGMEM combo8[] = { KC_R, KC_A, KC_O, COMBO_END};
-const uint16_t PROGMEM combo9[] = { KC_R, KC_I, KC_E, COMBO_END};
-const uint16_t PROGMEM combo10[] = { KC_T, KC_Y, KC_A, COMBO_END};
-const uint16_t PROGMEM combo11[] = { KC_O, KC_E, COMBO_END};
-const uint16_t PROGMEM combo12[] = { KC_Y, KC_E, COMBO_END};
-const uint16_t PROGMEM combo13[] = { KC_R, KC_T, KC_A, COMBO_END};
-const uint16_t PROGMEM combo14[] = { KC_R, KC_A, COMBO_END};
-const uint16_t PROGMEM combo15[] = { KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM combo16[] = { KC_I, KC_E, COMBO_END};
-const uint16_t PROGMEM combo17[] = { KC_T, KC_S, COMBO_END};
-const uint16_t PROGMEM combo18[] = { KC_O, KC_Y, COMBO_END};
-const uint16_t PROGMEM combo19[] = { KC_I, KC_Y, KC_E, COMBO_END};
-const uint16_t PROGMEM combo20[] = { KC_O, KC_I, KC_Y, COMBO_END};
-const uint16_t PROGMEM combo21[] = { KC_O, KC_I, COMBO_END};
-const uint16_t PROGMEM combo22[] = { KC_O, KC_I, KC_E, COMBO_END};
-const uint16_t PROGMEM combo23[] = { KC_S, KC_T, KC_A, COMBO_END};
-const uint16_t PROGMEM combo24[] = { KC_I, KC_Y, COMBO_END};
-const uint16_t PROGMEM combo25[] = { KC_S, KC_R, COMBO_END};
-const uint16_t PROGMEM combo26[] = { KC_S, KC_A, COMBO_END};
-const uint16_t PROGMEM combo27[] = { KC_S, KC_T, KC_R, COMBO_END};
-const uint16_t PROGMEM combo28[] = { KC_S, KC_T, KC_R, KC_A, COMBO_END};
-const uint16_t PROGMEM combo29[] = { KC_A, KC_I, COMBO_END};
-const uint16_t PROGMEM combo30[] = { KC_T, KC_I, COMBO_END};
-const uint16_t PROGMEM combo31[] = { KC_Y, KC_A, COMBO_END};
-const uint16_t PROGMEM combo32[] = { KC_Y, KC_I, KC_A, COMBO_END};
-const uint16_t PROGMEM combo33[] = { KC_O, KC_A, COMBO_END};
-const uint16_t PROGMEM combo34[] = { KC_2, KC_1, COMBO_END};
-const uint16_t PROGMEM combo35[] = { KC_3, KC_2, COMBO_END};
-const uint16_t PROGMEM combo36[] = { KC_5, KC_4, COMBO_END};
-const uint16_t PROGMEM combo37[] = { KC_5, KC_6, COMBO_END};
+const uint16_t PROGMEM global_combo_space[] = { KC_O, KC_I, KC_Y, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_enter[] = { KC_A, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_tab[] = { KC_A, KC_R, KC_T, KC_O, COMBO_END};
+const uint16_t PROGMEM global_combo_backspace[] = { KC_R, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_shift[] = { KC_S, KC_T, KC_R, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_caps[] = { KC_R, KC_Y, COMBO_END};
+const uint16_t PROGMEM global_combo_control[] = { KC_S, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_option[] = { KC_S, KC_I, COMBO_END};
+const uint16_t PROGMEM global_combo_escape[] = { KC_R, KC_A, KC_O, COMBO_END};
+const uint16_t PROGMEM global_combo_nav[] = { KC_R, KC_I, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_mouse[] = { KC_T, KC_Y, KC_A, COMBO_END};
+const uint16_t PROGMEM global_combo_b[] = { KC_O, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_c[] = { KC_Y, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_d[] = { KC_R, KC_T, KC_A, COMBO_END};
+const uint16_t PROGMEM global_combo_f[] = { KC_R, KC_A, COMBO_END};
+const uint16_t PROGMEM global_combo_g[] = { KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM global_combo_h[] = { KC_I, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_j[] = { KC_T, KC_S, COMBO_END};
+const uint16_t PROGMEM global_combo_k[] = { KC_O, KC_Y, COMBO_END};
+const uint16_t PROGMEM global_combo_l[] = { KC_I, KC_Y, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_m[] = { KC_O, KC_I, KC_Y, COMBO_END};
+const uint16_t PROGMEM global_combo_n[] = { KC_O, KC_I, COMBO_END};
+const uint16_t PROGMEM global_combo_p[] = { KC_O, KC_I, KC_E, COMBO_END};
+const uint16_t PROGMEM global_combo_q[] = { KC_S, KC_T, KC_A, COMBO_END};
+const uint16_t PROGMEM global_combo_u[] = { KC_I, KC_Y, COMBO_END};
+const uint16_t PROGMEM global_combo_v[] = { KC_S, KC_R, COMBO_END};
+const uint16_t PROGMEM global_combo_w[] = { KC_S, KC_A, COMBO_END};
+const uint16_t PROGMEM global_combo_x[] = { KC_S, KC_T, KC_R, COMBO_END};
+const uint16_t PROGMEM global_combo_z[] = { KC_S, KC_T, KC_R, KC_A, COMBO_END};
+const uint16_t PROGMEM global_combo_comma[] = { KC_A, KC_I, COMBO_END};
+const uint16_t PROGMEM global_combo_exclaim[] = { KC_T, KC_I, COMBO_END};
+const uint16_t PROGMEM global_combo_dot[] = { KC_Y, KC_A, COMBO_END};
+const uint16_t PROGMEM global_combo_sgl_quote[] = { KC_Y, KC_I, KC_A, COMBO_END};
+const uint16_t PROGMEM global_combo_fwd_slash[] = { KC_O, KC_A, COMBO_END};
+
+const uint16_t PROGMEM num_combo_7[] = { KC_2, KC_1, COMBO_END};
+const uint16_t PROGMEM num_combo_8[] = { KC_3, KC_2, COMBO_END};
+const uint16_t PROGMEM num_combo_9[] = { KC_5, KC_4, COMBO_END};
+const uint16_t PROGMEM num_combo_0[] = { KC_5, KC_6, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo0, KC_SPACE),
-    COMBO(combo1, KC_ENTER),
-    COMBO(combo2, KC_TAB),
-    COMBO(combo3, KC_BSPC),
-    COMBO(combo4, KC_LEFT_SHIFT),
-    COMBO(combo5, KC_CAPS),
-    COMBO(combo6, KC_LEFT_CTRL),
-    COMBO(combo7, KC_LEFT_ALT),
-    COMBO(combo8, KC_ESCAPE),
-    COMBO(combo9, TO(9)),
-    COMBO(combo10, TO(9)),
-    COMBO(combo11, KC_B),
-    COMBO(combo12, KC_C),
-    COMBO(combo13, KC_D),
-    COMBO(combo14, KC_F),
-    COMBO(combo15, KC_G),
-    COMBO(combo16, KC_H),
-    COMBO(combo17, KC_J),
-    COMBO(combo18, KC_K),
-    COMBO(combo19, KC_L),
-    COMBO(combo20, KC_M),
-    COMBO(combo21, KC_N),
-    COMBO(combo22, KC_P),
-    COMBO(combo23, KC_Q),
-    COMBO(combo24, KC_U),
-    COMBO(combo25, KC_V),
-    COMBO(combo26, KC_W),
-    COMBO(combo27, KC_X),
-    COMBO(combo28, KC_Z),
-    COMBO(combo29, KC_COMMA),
-    COMBO(combo30, KC_EXLM),
-    COMBO(combo31, KC_DOT),
-    COMBO(combo32, KC_QUOTE),
-    COMBO(combo33, KC_SLASH),
-    COMBO(combo34, KC_7),
-    COMBO(combo35, KC_8),
-    COMBO(combo36, KC_9),
-    COMBO(combo37, KC_0),
+    COMBO(global_combo_space, KC_SPACE),
+    COMBO(global_combo_enter, KC_ENTER),
+    COMBO(global_combo_tab, KC_TAB),
+    COMBO(global_combo_backspace, KC_BSPC),
+    COMBO(global_combo_shift, KC_LEFT_SHIFT),
+    COMBO(global_combo_caps, KC_CAPS),
+    COMBO(global_combo_control, KC_LEFT_CTRL),
+    COMBO(global_combo_option, KC_LEFT_ALT),
+    COMBO(global_combo_escape, KC_ESCAPE),
+    COMBO(global_combo_nav, TO(7)),
+    COMBO(global_combo_mouse, TO(9)),
+    COMBO(global_combo_b, KC_B),
+    COMBO(global_combo_c, KC_C),
+    COMBO(global_combo_d, KC_D),
+    COMBO(global_combo_f, KC_F),
+    COMBO(global_combo_g, KC_G),
+    COMBO(global_combo_h, KC_H),
+    COMBO(global_combo_j, KC_J),
+    COMBO(global_combo_k, KC_K),
+    COMBO(global_combo_l, KC_L),
+    COMBO(global_combo_m, KC_M),
+    COMBO(global_combo_n, KC_N),
+    COMBO(global_combo_p, KC_P),
+    COMBO(global_combo_q, KC_Q),
+    COMBO(global_combo_u, KC_U),
+    COMBO(global_combo_v, KC_V),
+    COMBO(global_combo_w, KC_W),
+    COMBO(global_combo_x, KC_X),
+    COMBO(global_combo_z, KC_Z),
+    COMBO(global_combo_comma, KC_COMMA),
+    COMBO(global_combo_exclaim, KC_EXLM),
+    COMBO(global_combo_dot, KC_DOT),
+    COMBO(global_combo_sgl_quote, KC_QUOTE),
+    COMBO(global_combo_fwd_slash, KC_SLASH),
+
+    COMBO(num_combo_7, KC_7),
+    COMBO(num_combo_8, KC_8),
+    COMBO(num_combo_9, KC_9),
+    COMBO(num_combo_0, KC_0),
 };
 
 extern rgb_config_t rgb_matrix_config;
@@ -254,6 +260,8 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_achordion(keycode, record)) { return false; }
+  
   switch (keycode) {
     case MAC_SIRI:
       HCS(0xCF);
