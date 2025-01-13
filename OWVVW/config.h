@@ -10,9 +10,9 @@
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define NO_AUTO_SHIFT_ALPHA
 #define CAPS_LOCK_STATUS
-#define SERIAL_NUMBER "OWVVW/m5x97m"
+#define SERIAL_NUMBER "OWVVW/RjOgaP"
 #define LAYER_STATE_16BIT
-#define COMBO_COUNT 32
+#define COMBO_COUNT 36
 #define HSS(report) host_system_send(record->event.pressed ? report : 0); return false
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
