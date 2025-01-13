@@ -22,11 +22,11 @@ enum tap_dance_codes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(9),                                          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_MAC_PASTE,   LT(2,KC_S),     KC_T,           KC_R,           LT(1,KC_A),     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_MAC_COPY,    LT(3,KC_O),     KC_I,           KC_Y,           LT(4,KC_E),     KC_LEFT_SHIFT,  KC_ESCAPE,                                                                      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_MAC_PASTE,   LT(2,KC_S),     KC_T,           KC_R,           LT(1,KC_A),     KC_ESCAPE,      KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_MAC_COPY,    LT(3,KC_O),     KC_I,           KC_Y,           LT(4,KC_E),     KC_LEFT_SHIFT,  KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, TD(DANCE_0),    MT(MOD_LCTL, KC_COMMA),MT(MOD_LALT, KC_DOT),MT(MOD_LGUI, KC_EQUAL),KC_TAB,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, OSL(5),         KC_ENTER,       MAC_SIRI,                                                                                                       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    LT(6,KC_SPACE), LT(7,KC_BSPC),  KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, OSL(5),         KC_TRANSPARENT, MAC_SIRI,                                                                                                       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    LT(6,KC_SPACE), LT(7,KC_ENTER), KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [1] = LAYOUT_moonlander(
     TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
@@ -133,6 +133,10 @@ const uint16_t PROGMEM combo28[] = { LT(1,KC_A), KC_R, KC_T, LT(3,KC_O), COMBO_E
 const uint16_t PROGMEM combo29[] = { KC_R, LT(4,KC_E), COMBO_END};
 const uint16_t PROGMEM combo30[] = { KC_R, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo31[] = { LT(3,KC_O), KC_I, KC_Y, LT(1,KC_A), COMBO_END};
+const uint16_t PROGMEM combo32[] = { KC_2, KC_1, COMBO_END};
+const uint16_t PROGMEM combo33[] = { KC_3, KC_2, COMBO_END};
+const uint16_t PROGMEM combo34[] = { KC_5, KC_4, COMBO_END};
+const uint16_t PROGMEM combo35[] = { KC_6, KC_5, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_SPACE),
@@ -167,6 +171,10 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo29, KC_BSPC),
     COMBO(combo30, OSM(MOD_LSFT)),
     COMBO(combo31, KC_CAPS),
+    COMBO(combo32, KC_7),
+    COMBO(combo33, KC_8),
+    COMBO(combo34, KC_9),
+    COMBO(combo35, KC_0),
 };
 
 extern rgb_config_t rgb_matrix_config;
@@ -177,7 +185,7 @@ void keyboard_post_init_user(void) {
 
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
-    [0] = { {214,218,204}, {252,119,255}, {252,119,255}, {0,0,0}, {0,0,0}, {0,0,0}, {74,255,206}, {74,255,206}, {214,218,204}, {0,0,0}, {0,0,0}, {74,255,206}, {74,255,206}, {214,218,204}, {0,0,0}, {0,0,0}, {74,255,206}, {74,255,206}, {249,244,245}, {249,244,245}, {0,0,0}, {74,255,206}, {74,255,206}, {249,244,245}, {96,253,255}, {0,0,0}, {0,0,0}, {96,253,255}, {96,253,255}, {173,255,255}, {0,0,0}, {214,218,204}, {96,253,255}, {96,253,255}, {0,0,0}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+    [0] = { {0,0,0}, {252,119,255}, {252,119,255}, {0,0,0}, {0,0,0}, {0,0,0}, {74,255,206}, {74,255,206}, {214,218,204}, {0,0,0}, {0,0,0}, {74,255,206}, {74,255,206}, {214,218,204}, {0,0,0}, {0,0,0}, {74,255,206}, {74,255,206}, {249,244,245}, {249,244,245}, {0,0,0}, {74,255,206}, {74,255,206}, {249,244,245}, {0,0,0}, {0,0,0}, {214,218,204}, {96,253,255}, {96,253,255}, {173,255,255}, {0,0,0}, {0,0,0}, {96,253,255}, {96,253,255}, {0,0,0}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
     [1] = { {74,255,206}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {177,218,204}, {177,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {177,218,204}, {177,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {177,218,204}, {177,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
